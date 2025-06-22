@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+</head>
+<body>
+<h1>📋 Список пользователей</h1>
+<table border="1">
+    <tr><th>User ID</th><th>Имя</th><th>Username</th><th>Бан</th></tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.user_id }}</td>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.banned }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<hr>
+<h2>📨 Сделать рассылку</h2>
+<form method="post">
+    {% csrf_token %}
+    <textarea name="text" rows="4" cols="50" placeholder="Введите текст рассылки..."></textarea><br><br>
+    <button type="submit">Отправить</button>
+</form>
+</body>
+</html>
